@@ -3,7 +3,7 @@ import classes from './Input.module.scss'
 
 
 function isInvalid({valid, touched, shouldValidate}) {
-
+   return !valid && shouldValidate && touched
 }
 
 
@@ -27,7 +27,7 @@ const Input = props => {
          />
 
          {
-            (!isInvalid(props))
+            (isInvalid(props))
                ?<span>{props.errorMessage || 'Введите верное значение'}</span>
                :null
          }
